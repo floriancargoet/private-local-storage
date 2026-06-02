@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Private Local Storage - Demo</title>
+  </head>
+  <body>
+    <script
+      src="../dist/private-local-storage.js"
+      data-prefix="private-demo-"
+    ></script>
+    <pre id="output-private"></pre>
+    <pre id="output-global"></pre>
+    <script>
+      realLocalStorage.clear();
+      realLocalStorage.setItem("foo", "bar");
+      localStorage.setItem("demo", "demo");
+      document.getElementById("output-private").innerHTML = JSON.stringify(
+        localStorage,
+        null,
+        2,
+      );
+      document.getElementById("output-global").innerHTML = JSON.stringify(
+        realLocalStorage,
+        null,
+        2,
+      );
+    </script>
+  </body>
+</html>
